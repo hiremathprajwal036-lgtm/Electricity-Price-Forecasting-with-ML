@@ -1,0 +1,54 @@
+{
+  "naive 24h lag": {
+    "total_return_pct": 108.96,
+    "sharpe_ratio": 2.453,
+    "max_drawdown_pct": -10.06,
+    "n_trades": 3312,
+    "win_rate_pct": 38.8,
+    "avg_pnl_per_trade": 3.25,
+    "total_pnl": 10750.67,
+    "n_buy_signals": 2119,
+    "n_sell_signals": 1996,
+    "n_hold_signals": 2429,
+    "final_portfolio_value": 20896.14
+  },
+  "xgboost": {
+    "total_return_pct": 171.01,
+    "sharpe_ratio": 3.834,
+    "max_drawdown_pct": -8.18,
+    "n_trades": 3294,
+    "win_rate_pct": 38.95,
+    "avg_pnl_per_trade": 5.07,
+    "total_pnl": 16696.88,
+    "n_buy_signals": 2104,
+    "n_sell_signals": 1994,
+    "n_hold_signals": 2446,
+    "final_portfolio_value": 27100.96
+  },
+  "random forest": {
+    "total_return_pct": 169.79,
+    "sharpe_ratio": 3.777,
+    "max_drawdown_pct": -8.12,
+    "n_trades": 3261,
+    "win_rate_pct": 38.98,
+    "avg_pnl_per_trade": 5.08,
+    "total_pnl": 16574.96,
+    "n_buy_signals": 2100,
+    "n_sell_signals": 1932,
+    "n_hold_signals": 2512,
+    "final_portfolio_value": 26979.05
+  },
+  "lstm": {
+    "total_return_pct": 117.06,
+    "sharpe_ratio": 2.82,
+    "max_drawdown_pct": -9.29,
+    "n_trades": 2857,
+    "win_rate_pct": 39.38,
+    "avg_pnl_per_trade": 3.96,
+    "total_pnl": 11301.56,
+    "n_buy_signals": 1934,
+    "n_sell_signals": 1986,
+    "n_hold_signals": 2600,
+    "final_portfolio_value": 21705.64
+  }
+}
