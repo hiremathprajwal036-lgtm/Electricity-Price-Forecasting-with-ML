@@ -17,9 +17,9 @@ except ImportError:
 
 try:
     import tensorflow as tf
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import LSTM, Dense, Dropout, BatchNormalization
-    from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
+    from tensorflow.keras.models import Sequential  # type: ignore
+    from tensorflow.keras.layers import LSTM, Dense, Dropout, BatchNormalization  # type: ignore
+    from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau  # type: ignore
     TENSORFLOW_AVAILABLE = True
 except Exception:
     TENSORFLOW_AVAILABLE = False
@@ -211,13 +211,13 @@ class LSTMForecaster:
     def save(self, name="lstm"):
         os.makedirs(MODELS_DIR, exist_ok=True)
         if self.model is None:
-         raise ValueError("LSTM model not trained")
-         self.model.save(os.path.join(MODELS_DIR, f"{name}.h5"))
+            raise ValueError("LSTM model not trained")
+        self.model.save(os.path.join(MODELS_DIR, f"{name}.h5"))
         joblib.dump(
-           {"scaler_X": self.scaler_X, "scaler_y": self.scaler_y,
-            "sequence_len": self.sequence_len},
-           os.path.join(MODELS_DIR, f"{name}_meta.pkl"),
-       )
+            {"scaler_X": self.scaler_X, "scaler_y": self.scaler_y,
+             "sequence_len": self.sequence_len},
+            os.path.join(MODELS_DIR, f"{name}_meta.pkl"),
+        )
         print(f"saved -> models/{name}.h5")
 
 class NaiveForecaster:
