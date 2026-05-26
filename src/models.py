@@ -202,7 +202,6 @@ class LSTMForecaster:
         Xs = self._make_sequences(X_sc)
         if self.model is None:
          raise ValueError("LSTM model not trained")
-         self.model.predict(X)
         preds_sc = self.model.predict(Xs, verbose=0)
         preds = self.scaler_y.inverse_transform(preds_sc).ravel()
         full_preds = np.full(len(X), np.nan)
@@ -213,15 +212,13 @@ class LSTMForecaster:
         os.makedirs(MODELS_DIR, exist_ok=True)
         if self.model is None:
          raise ValueError("LSTM model not trained")
-         self.model.save("models/lstm.h5")
          self.model.save(os.path.join(MODELS_DIR, f"{name}.h5"))
         joblib.dump(
-            {"scaler_X": self.scaler_X, "scaler_y": self.scaler_y,
-             "sequence_len": self.sequence_len},
-            os.path.join(MODELS_DIR, f"{name}_meta.pkl"),
-        )
+           {"scaler_X": self.scaler_X, "scaler_y": self.scaler_y,
+            "sequence_len": self.sequence_len},
+           os.path.join(MODELS_DIR, f"{name}_meta.pkl"),
+       )
         print(f"saved -> models/{name}.h5")
-
 
 class NaiveForecaster:
     # simplest possible baseline: predict tomorrow = today (same hour)
